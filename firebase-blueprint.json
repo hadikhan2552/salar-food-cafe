@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "MenuItem": {
+      "title": "Menu Item",
+      "description": "A food dish available in the cafe",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "image": { "type": "string" },
+        "price": { "type": "number" },
+        "rank": { "type": "number" },
+        "isHero": { "type": "boolean" },
+        "isSignature": { "type": "boolean" },
+        "category": { "type": "string" },
+        "accentColor": { "type": "string" }
+      },
+      "required": ["title", "subtitle", "image", "price"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Customer feedback on dishes",
+      "type": "object",
+      "properties": {
+        "user": { "type": "string" },
+        "contact": { "type": "string" },
+        "avatar": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "dishId": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["user", "contact", "rating", "comment", "status"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer order details",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "contact": { "type": "string" },
+        "address": { "type": "string" },
+        "items": { "type": "array" },
+        "total": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "contact", "address", "items", "total", "status"]
+    },
+    "Deal": {
+      "title": "Promotion Deal",
+      "description": "A bundle deal consisting of multiple menu items",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "items": { "type": "array" },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "discount": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "items", "price", "originalPrice", "discount"]
+    }
+  },
+  "firestore": {
+    "menu": {
+      "schema": "MenuItem",
+      "description": "Collection of all food items"
+    },
+    "reviews": {
+      "schema": "Review",
+      "description": "Collection of all customer reviews"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Collection of all customer orders"
+    },
+    "deals": {
+      "schema": "Deal",
+      "description": "Collection of promotion deals"
+    },
+    "admins": {
+      "schema": { "type": "object", "properties": { "email": { "type": "string" } } },
+      "description": "Authorized admin users"
+    }
+  }
+}
