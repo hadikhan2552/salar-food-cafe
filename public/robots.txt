@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap Index Link Directions
+Sitemap: https://ais-pre-xhjqlnuckndbhleac56sa3-372796273559.asia-southeast1.run.app/sitemap.xml
+Sitemap: https://salarfoodcafe.com/sitemap.xml

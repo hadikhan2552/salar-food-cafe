@@ -207,6 +207,9 @@ export default function App() {
   return (
     <div className="relative min-h-screen w-full flex flex-col font-sans transition-all duration-700 overflow-x-hidden bg-slate-950 dark text-slate-100">
       
+      {/* Principal SEO Heading H1 (Screen-reader optimized for highest indexable search engine priority) */}
+      <h1 className="sr-only">Salar Food Cafe | Artisanal Fast Food & Premium Gourmet Burgers in Islamabad</h1>
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-white/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex justify-between items-center">
@@ -304,6 +307,88 @@ export default function App() {
             </div>
           </>
         )}
+      </section>
+
+      {/* About Us Section (SEO Optimized content block + #about anchor target) */}
+      <section id="about" className="w-full py-16 sm:py-32 px-4 sm:px-6 bg-slate-950 text-white relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(249,115,22,0.05),transparent_50%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
+            
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6 sm:space-y-8 text-center lg:text-left"
+            >
+              <div className="space-y-2 sm:space-y-4">
+                <span className="text-orange-600 font-black uppercase tracking-[0.4em] text-[10px] sm:text-xs block">THE SALAR EXPERIENCE</span>
+                <h2 className="text-3xl sm:text-6xl font-black text-white tracking-tighter leading-none">
+                  Crafting Modern <span className="text-orange-600">Culinary Art</span>
+                </h2>
+              </div>
+              <p className="text-slate-400 text-sm sm:text-lg leading-relaxed font-medium">
+                At Salar Food Cafe, we believe fast food should be a luxurious gourmet journey, not a compromise. Founded in Islamabad, we combine culinary artistry with premium, farm-fresh ingredients to create satisfying meals that excite the modern palate.
+              </p>
+              <p className="text-slate-400 text-sm sm:text-lg leading-relaxed font-medium">
+                Our signature Honey Wings, handcrafted giant burgers, and savory deals are made with extreme dedication to taste, texture, and uncompromising hygiene. Experience the ultimate flavor destination.
+              </p>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                <div className="bg-white/5 border border-white/10 px-5 py-3 rounded-2xl flex items-center gap-3">
+                   <span className="text-orange-500 font-black text-2xl">100%</span>
+                   <span className="text-slate-300 font-bold uppercase text-[9px] tracking-widest leading-none block">Fresh<br/>Ingredients</span>
+                </div>
+                <div className="bg-white/5 border border-white/10 px-5 py-3 rounded-2xl flex items-center gap-3">
+                   <span className="text-orange-500 font-black text-2xl">5★</span>
+                   <span className="text-slate-300 font-bold uppercase text-[9px] tracking-widest leading-none block">Customer<br/>Rating</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+            >
+              {[
+                {
+                  title: "Artisanal Recipes",
+                  description: "Every sauce is mixed, and every marinade prepped from scratch daily.",
+                  icon: "✨"
+                },
+                {
+                  title: "Supreme Quality",
+                  description: "We work directly with premium vendors to secure the freshest poultry & vegetables.",
+                  icon: "👑"
+                },
+                {
+                  title: "Perfect Hygiene",
+                  description: "Our high-tech smart kitchen operates on flawless, sterile operating protocols.",
+                  icon: "🧼"
+                },
+                {
+                  title: "Express Delivery",
+                  description: "Carefully packaged premium box sets sent straight to your table hot and fresh.",
+                  icon: "🚀"
+                }
+              ].map((pillar, idx) => (
+                <div key={idx} className="p-6 sm:p-8 bg-slate-900/60 rounded-[2rem] border border-white/5 space-y-4 hover:border-orange-500/20 transition-all hover:bg-slate-900 group">
+                  <div className="w-12 h-12 bg-orange-950/40 rounded-xl flex items-center justify-center text-xl shadow-inner group-hover:scale-110 transition-transform">
+                    {pillar.icon}
+                  </div>
+                  <div className="space-y-1">
+                     <h3 className="text-base sm:text-lg font-black text-white uppercase tracking-tight">{pillar.title}</h3>
+                     <p className="text-xs text-slate-500 font-medium leading-relaxed">{pillar.description}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+          </div>
+        </div>
       </section>
 
       {/* Exclusive Deals Section */}
